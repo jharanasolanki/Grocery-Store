@@ -15,7 +15,7 @@
     $password=hash('sha256',mysqli_real_escape_string($conn,$_POST['password']));
 
     // Data collected from form is inserted in Customer table
-    $sql = "INSERT INTO Customer (name,phoneno,emailid,address)VALUES ('$name', $contactno,'$email','$address')";
+    $sql = "INSERT INTO customer (name,phoneno,emailid,address)VALUES ('$name', $contactno,'$email','$address')";
     if ($conn->query($sql) === TRUE) {
         echo "New Customer created successfully";
     } else {
