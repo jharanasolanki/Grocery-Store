@@ -1,6 +1,6 @@
 <?php
     // Database Connection setup
-    $conn = new mysqli("localhost:8080","root","","masks");
+    $conn = new mysqli("localhost","root","","masks");
     if ($conn -> connect_errno) {
     echo "Failed to connect to MySQL: " . $conn -> connect_error;
     exit();
