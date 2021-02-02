@@ -25,8 +25,8 @@
 
 
                 <div class="element-name"> 
-                  <span class="mid1"> <label class="title">Your Username</label> <input type="text" size="8" name="uname" required="required"/> 
-                    <label class="subtitle" style="color:red;" id="errmsg">Not Avalible</label>
+                  <span class="mid1"> <label class="title">Your Username</label> <input type="text" size="8" name="uname" required="required" onkeyup="checkUsername(this.value)"/> 
+                    <label class="subtitle" style="color:red;" id="errMsg"></label>
                   </span> 
                   <span class="mid1"> <label class="title">Your Name</label> <input type="text" size="8" name="cname" required="required"/> </span>
                   <span class="mid1"> <label class="title">Email ID</label> <input type="email" size="8" name="emailid" required="required"/> </span> 

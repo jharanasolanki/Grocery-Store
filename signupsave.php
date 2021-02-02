@@ -1,22 +1,16 @@
 <?php
-    // Database Connection setup
-    $conn = new mysqli("localhost","root","","masks");
-    if ($conn -> connect_errno) {
-    echo "Failed to connect to MySQL: " . $conn -> connect_error;
-    exit();
-    }
+    include("config.php");
 
     //User details are taken from the $_POST 
-    $name=$_POST['cname'];
-    $contactno==$_POST['phone'];
-    $email==$_POST['emailid'];
-    $address==$_POST['address'];
-    $username=$_POST['uname'];
-    $password=hash('sha256',$_POST['password']);
-    $usergroup="customer";
+    $name=mysqli_real_escape_string($conn,$_POST['cname']);
+    $contactno=mysqli_real_escape_string($conn,$_POST['phone']);
+    $email=mysqli_real_escape_string($conn,$_POST['emailid']);
+    $address=mysqli_real_escape_string($conn,$_POST['address']);
+    $username=mysqli_real_escape_string($conn,$_POST['uname']);
+    $password=hash('sha256',mysqli_real_escape_string($conn,$_POST['password']));
 
     // Data collected from form is inserted in Customer table
-    $sql = "INSERT INTO Customer (name,contactno,email,address)VALUES ('$name', $contactno,'$email','$address')";
+    $sql = "INSERT INTO Customer (name,phoneno,emailid,address)VALUES ('$name', $contactno,'$email','$address')";
     if ($conn->query($sql) === TRUE) {
         echo "New Customer created successfully";
     } else {
@@ -30,11 +24,11 @@
     $id=$row['id'];
 
     //This query enters login details of customer in Account table
-    $sql = "INSERT INTO account (username,password,cid)VALUES ('$username','$password',$id,)";
+    $sql = "INSERT INTO account (username,password,custid)VALUES ('$username','$password',$id)";
     if ($conn->query($sql) === TRUE) {
         echo "New Account created successfully";
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
     }
-    
+    header("Location: index.php");
 ?>
