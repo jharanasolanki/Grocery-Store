@@ -1,4 +1,9 @@
 <?php
+    if (isset($_SESSION['username'])) {
+        header('Location:'.'index.php');
+    }
+    ?>
+<?php
     include("config.php");
 
     //User details are taken from the $_POST 
@@ -30,5 +35,5 @@
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
     }
-    header("Location: index.php");
+    header("Location: signin.php?uname=$username&password=$password");
 ?>

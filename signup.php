@@ -9,7 +9,12 @@
 <body class="hero-image">
     </div>
     <!-- Nav bar -->
-    <?php require 'nav.html' ?>
+    <?php require 'nav.php' ?>
+    <?php
+    if (isset($_SESSION['username'])) {
+        header('Location:'.'index.php');
+    }
+    ?>
     <!-- Nav bar finishh -->
     <!-- Inspection form start -->
     <section>
@@ -29,7 +34,7 @@
                     <label class="subtitle" style="color:red;" id="errMsg"></label>
                   </span> 
                   <span class="mid1"> <label class="title">Your Name</label> <input type="text" size="8" name="cname" required="required"/> </span>
-                  <span class="mid1"> <label class="title">Email ID</label> <input type="email" size="8" name="emailid" required="required"/> </span> 
+                  <span class="mid1"> <label class="title">Email ID</label> <input type="email" size="20" name="emailid" required="required"/> </span> 
                   <span class="mid1"> <label class="title">Phone Number</label> <input type="number" size="10" name="phone" required="required"/> </span> 
 
                   <span class="mid1"> <label class="title">Your Password</label> <input type="password" name="password"/> </span> 

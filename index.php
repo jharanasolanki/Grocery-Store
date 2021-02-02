@@ -8,7 +8,7 @@
 </head>
 
 <body class="hero-image">
-   </div> <!-- Nav bar --> <?php require 'nav.html' ?>
+   </div> <!-- Nav bar --> <?php require 'nav.php' ?>
    <!-- Nav bar finishh -->
    <!-- login section -->
 

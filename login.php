@@ -1,6 +1,7 @@
 <?php
+  session_start();
    	include("config.php");
-  	session_start();
+  	
    
    	if($_SERVER["REQUEST_METHOD"] == "POST") 
    	{
@@ -27,9 +28,8 @@
     	 }
     	 else 
         {
-           header('Location: ' . 'signin.php'."?err=2&uname=$myusername&password=$password");
+           header('Location: ' . 'signin.php'."?err=2&uname=$myusername");
         }
       }
   	$conn->close();
    }
-?>
