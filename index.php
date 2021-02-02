@@ -1,3 +1,4 @@
+<?php require 'nav.php' ?>
 <!DOCTYPE html>
 <html>
 
@@ -8,7 +9,7 @@
 </head>
 
 <body class="hero-image">
-   </div> <!-- Nav bar --> <?php require 'nav.php' ?>
+   </div> <!-- Nav bar --> 
    <!-- Nav bar finishh -->
    <!-- login section -->
 

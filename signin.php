@@ -1,3 +1,4 @@
+<?php require 'nav.php' ?>
 <!DOCTYPE html>
 <html>
 
@@ -10,7 +11,6 @@
 <body class="hero-image">
     </div>
     <!-- Nav bar -->
-    <?php require 'nav.php' ?>
     <?php
     if (isset($_SESSION['username'])) {
         header('Location:'.'index.php');
