@@ -12,7 +12,7 @@
       $result = mysqli_query($conn, $query);
       if (mysqli_num_rows($result) == 0) 
       { // IF no previous user is using this username.
-        header('Location: ' . $_SERVER['HTTP_REFERER']."?err=1?uname=$myusername?password=$password");
+        header('Location: ' .'signin.php'."?err=1&uname=$myusername&password=$password");
       }
       else 
       {
@@ -27,7 +27,7 @@
     	 }
     	 else 
         {
-           header('Location: ' . $_SERVER['HTTP_REFERER']."?err=2?uname=$myusername?password=$password");
+           header('Location: ' . 'signin.php'."?err=2&uname=$myusername&password=$password");
         }
       }
   	$conn->close();

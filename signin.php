@@ -23,11 +23,11 @@
                 <div lass="element-name">
                     <label class="title">Your Username</label> <input type="text" name="uname" required="required" <?php
                                                                                                                             if (isset($_GET['uname'])) {
-                                                                                                                                echo "value=".$_GET['uname'];
+                                                                                                                                echo "value='".$_GET['uname']."'";
                                                                                                                             } ?>/>
                     <label class="title">Your Password</label> <input type="password" name="password" required="required"<?php
                                                                                                                             if (isset($_GET['password'])) {
-                                                                                                                                echo "value=".$_GET['password'];
+                                                                                                                                echo "value='".$_GET['password']."'";
                                                                                                                             } ?>/>
                     <label class="subtitle" style="color:red;" id="errMsg">
                         <?php
