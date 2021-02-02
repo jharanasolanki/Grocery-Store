@@ -1,7 +1,14 @@
 <?php
-    //Connection to database
-    $conn = new mysqli("remotemysql.com","HCT4UbGiki"," WszXABOU7F","HCT4UbGiki");
-    if ($conn -> connect_errno) {
-    echo "Failed to connect to MySQL: " . $conn -> connect_error;
-    exit();
-    }
+$servername = "remotemysql.com";
+$username = "HCT4UbGiki";
+$password = "HCT4UbGiki";
+$dbname = "HCT4UbGiki";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+  
+}
+?>
