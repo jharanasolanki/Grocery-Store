@@ -6,13 +6,13 @@
    	{
     	// username and password sent from form 
     	$myusername = mysqli_real_escape_string($conn,$_POST['uname']);
-    	$mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
-    	$mypassword=hash('sha256', $mypassword);
+    	$password = mysqli_real_escape_string($conn,$_POST['password']); 
+    	$mypassword=hash('sha256', $password);
       $query = "SELECT * FROM account  WHERE username ='$myusername'";
       $result = mysqli_query($conn, $query);
       if (mysqli_num_rows($result) == 0) 
       { // IF no previous user is using this username.
-        echo '<script>alert("User does not exist!")</script>';
+        header('Location: ' . $_SERVER['HTTP_REFERER'].'?err=1');
       }
       else 
       {
@@ -27,8 +27,7 @@
     	 }
     	 else 
         {
-           echo '<script>alert("Your Password is invalid")</script>';
-           //$error="Your Password is invalid";
+           header('Location: ' . $_SERVER['HTTP_REFERER']."?err=2?uname=$myusername?password=$password");
         }
       }
   	$conn->close();
