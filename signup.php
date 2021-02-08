@@ -20,7 +20,7 @@
     <!-- Inspection form start -->
     <section>
         <div class="container">
-            <form enctype="multipart/form-data" class="formoid-flat-green" style="background-color:#E4E4F4;font-size:14px;font-family:'Lato', sans-serif;color:#000;max-width:600px;min-width:150px" method="post" action="signupsave.php" name="myForm">
+            <form enctype="multipart/form-data" class="formoid-flat-green" style="background-color:#fff;font-size:14px;font-family:'Lato', sans-serif;color:#000;max-width:600px;min-width:150px" method="post" action="signupsave.php" name="myForm">
                 <div class="title">
                     <h2>SignUp Form</h2>
                 </div>

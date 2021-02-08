@@ -21,7 +21,7 @@
 
     <section>
         <div class="container center">
-            <form enctype="multipart/form-data" class="formoid-flat-green" style="background-color:#E4E4F4;font-size:14px;font-family:'Lato', sans-serif;color:#000;max-width:600px;min-width:150px" method="post" action="login.php">
+            <form enctype="multipart/form-data" class="formoid-flat-green" style="background-color:#fff;font-size:14px;font-family:'Lato', sans-serif;color:#000;max-width:600px;min-width:150px" method="post" action="login.php">
                 <div class="title">
                     <h2 style="margin-right: 27px;margin-left: 27px;">Log in</h2>
                 </div>
