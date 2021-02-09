@@ -42,6 +42,15 @@
                     <span class="mid1"> <label class="title">Your Password</label> <input type="password" name="password" id="password" /> </span>
                     <span class="mid1"> <label class="title">Confirm Your Password</label> <input type="password" name="cpassword" id="cpassword"/> </span>
                     <label class="subtitle" style="color:red;" id="errPass"></label>
+                    <span class="mid1"> <label class="title">Choose Security Question</label> 
+                    <select name="secquestion" required>
+                    <option value="Name of favorite Teacher?">Name of favorite Teacher?</option>
+                    <option value="Name of primary School?">Name of primary School?</option>
+                    <option value="Name of Birthplace?">Name of Birthplace?</option>
+                    </select>
+                    </span>
+                    <span class="mid1"> <label class="title">Enter answer for security question:</label> 
+                    <input type="password" name="secanswer" id="password" required/> </span>
 
                     <label class="title">Address</label> <textarea rows="4" cols="50" name="address" id="address"></textarea>
                     <label class="subtitle" style="color:red;" id="errPhone"></label>

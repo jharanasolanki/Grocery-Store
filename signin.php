@@ -44,6 +44,7 @@
                         ?>
                     </label>
                     <h3><label class="subtitle" style="color:black;"><a href="signup.php">New user? Sign up!</a></label></h3>
+                    <h3><label class="subtitle" style="color:black;"><a href="forgotpasswordfront.php">Forgot Password?</a></label></h3>
                 </div>
                 <div class="submit"><input type="submit" value="Submit" /></div>
             </form>
