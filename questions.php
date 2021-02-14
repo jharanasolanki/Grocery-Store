@@ -55,6 +55,7 @@ if (isset($_GET['err'])) {
 </body>
 <script type="text/javascript" language="javascript">
     function validate() {
+        document.getElementById("errPass").innerHTML="";
         ans=1;
         var pass1=document.getElementById('pass1').value;
         var pass2=document.getElementById('pass2').value;
