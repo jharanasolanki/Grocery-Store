@@ -1,0 +1,127 @@
+.main
+{
+    width:100%;
+    height:100%;
+}
+.sectionchoosediv
+{
+    width: 100%;
+    height:10%;
+    padding-top:2%;
+    padding-left: 9%;
+    padding-right: 9%;
+    padding-bottom:2%;
+}
+.sectiondiv
+{
+    width:25%;
+    height:90%;
+    float:left;
+    border-radius: 20px;
+    background-color: white;
+    margin-top:1%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom:1%;
+}
+.sectiondiv:hover
+{
+    transform: scale(1.1);
+}
+.sectionname
+{
+    float:left;
+    margin-left:1%;
+    margin-right:1%;
+    margin-top:7%;
+    text-align: center;
+    color:black;
+    font-family: 'Montserrat', sans-serif;
+}
+.sectionicon
+{
+    float:left;
+    height:50px;
+    width:50px;
+    margin-top:3%;
+    margin-left:10%;
+    margin-right:2%;
+    border-radius: 20px;
+}
+.allproductdiv
+{
+    width:100%;
+    height:90%;
+}
+.productrowdiv
+{
+    width:100%;
+    height:65%;
+    margin-top:1%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.productdiv
+{
+    float:left;
+    border-radius: 20px;
+    background-color: white;
+    width:21%;
+    height: 90%;
+    margin-top:1%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom:1%;
+    padding-bottom: 1%;
+}
+.productimage
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    margin-top: 20px;
+    height: 250px;
+    width:250px;
+}
+.productname
+{
+    margin-left:1%;
+    margin-right:1%;
+    margin-top:1%;
+    text-align: center;
+    color:black;
+    font-family: 'Montserrat', sans-serif;
+}
+.productprice
+{
+    margin-left:1%;
+    margin-right:1%;
+    margin-top:1%;
+    text-align: center;
+    color:#259c25;
+    font-family: 'Poppins', sans-serif;
+}
+.productbutton
+{
+    border-radius: 20px;
+    margin-left:100px;
+    margin-right:100px;
+    text-align: center;
+    margin-top:1%;
+    padding:2%;
+    background-color:#49a149;
+    color:white;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+}
+.productbutton:hover >.productimage
+{
+    opacity: 0.2;
+}
+.productbutton:hover
+{
+    transform: scale(1.2);
+    background-color:#49a149;
+}
+
