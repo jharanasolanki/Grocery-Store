@@ -15,7 +15,7 @@ session_start();
 <div class="topnav" id="myTopnav">
   <a href="index.php" class="active">Home</a>
   <a href="#news">News</a>
-  <a href="#contact">Contact</a>
+  <a href="catalogue.php">Catalog</a>
   <div class="dropdown">
     <button class="dropbtn">Dropdown
       <i class="fa fa-caret-down"></i>
