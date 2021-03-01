@@ -20,13 +20,13 @@
     <div class="maindiv">
     <div class="sectionchoosediv">
         <div class="sectiondiv" style="cursor: pointer;" onclick="showEssentials()">
-            <img src="images/vegetablessection.png" class="sectionicon">
+            <img src="images/packedfoodsection.png" class="sectionicon">
             <div class="sectionname" style="cursor: pointer;" onclick="showEssentials()">
                 Essentials
             </div>
         </div>
         <div class="sectiondiv" style="cursor: pointer;" onclick="showGrocery()">
-            <img src="images/packedfoodsection.png" class="sectionicon">
+            <img src="images/vegetablessection.png" class="sectionicon">
             <div class="sectionname" style="cursor: pointer;" onclick="showGrocery()">
                 Grocery
             </div>
