@@ -1,0 +1,91 @@
+.prodbody
+{
+    width: 95%;
+    height: 90%;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding: 2%;
+}
+.prodimage
+{
+    box-shadow: 0 4px 8px 0 rgba(7, 7, 7, 0.2);
+    width: 40%;
+    height: inherit;
+    float: left;
+    margin-right: 3%;
+    padding: 2%;
+}
+.prodimage img
+{
+    height: 100%;
+    width: 100%;
+}
+.prodinfo
+{
+    box-shadow: 0 4px 8px 0 rgba(7, 7, 7, 0.2);
+    width: 40%;
+    height: inherit;
+    float: left;
+    margin-left: 3%;
+    padding: 2%;
+}
+.prodtitle
+{
+    width: 90%;
+    height: 20%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: xx-large;
+    font-weight: bold;
+}
+.prodcategory
+{
+    width: 90%;
+    height: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: small;
+    font-style: italic;
+}
+.proddesc
+{
+    height: 70%;
+    width: 20%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: small;
+}
+.prodprice
+{
+    width: 90%;
+    height: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: x-large;
+}
+.buybutton
+{
+    width: 25%;
+    height: 5%;
+    padding: 3%;
+    border: 2px solid;
+    border-color: #94D700;
+    background-color: #94D700;
+    color: #fdeb45;
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
+}
+.buyfeatures
+{
+    width: 70%;
+    height: 30%;
+}
+.feature
+{
+    height: 90%;
+    width: 20%;
+    margin: 2%;
+    float: left;
+}

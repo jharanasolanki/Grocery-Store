@@ -59,7 +59,7 @@
                     $link="buyitem.php?id=".$row['id'];
                     $id=$row['id'];
                     print <<< END
-                    <div class="productdivtop">
+                    <div class="productdivtop" onclick="productPage($id)">
                     <div class="productdiv">
                     <label class="productid" hidden>$id</label>
                     <img src="$imgname" class="productimage">
@@ -176,6 +176,10 @@ END;
             document.getElementById("searchitem").innerHTML="<h4>Not Found!</h4>";
         }
         document.getElementById("showing").innerHTML=document.getElementById("searchitem").innerHTML;
+    }
+    function productPage(pid)
+    {
+        window.location.replace("productpage.php?id="+pid);
     }
 </script>
 </html>
