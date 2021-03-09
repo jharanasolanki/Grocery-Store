@@ -64,7 +64,7 @@
                     <label class="productid" hidden>$id</label>
                     <img src="$imgname" class="productimage">
                     <div class="productname">$name</div>
-                    <div class="productprice">$price</div>
+                    <div class="productprice">Rs.$price</div>
                     <a href="$link" class="productbutton"><div>+ Cart</div></a>
                     </div>
                     </div>
