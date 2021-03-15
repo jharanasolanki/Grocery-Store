@@ -1,0 +1,153 @@
+.allitems
+{
+    float: left;
+    width: 60%;
+}
+.item
+{
+    box-shadow: 0 4px 8px 0 rgba(7, 7, 7, 0.2);
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(255, 255, 255);
+    width: 90%;
+    height: 20vh;
+    margin-top: 2%;
+    margin-right:2%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
+}
+.left
+{
+    width: 30%;
+    height: 98%;
+    display: inline-block;
+}
+.left img
+{
+    height: 100%;
+    width: 100%;
+}
+.right
+{
+    width:68%;
+    height: 98%;
+    display: inline-block;  
+}
+.row
+{
+    height: 30%;
+    width: 96%;
+    text-align:center;
+    margin-top: 1%;
+    float:right;
+}
+.name
+{
+    width: 50%;
+    height: 100%;
+    float:left;
+    font-weight: 700;
+    font-size: larger;
+}
+.delete
+{
+    width: 10%;
+    height: 100%;
+    float:right;
+}
+.qtydiv
+{
+    float: left;
+    width: 48%;
+    height: 90%;
+    text-align: center;
+}
+.qty
+{
+    width: 90%;
+    height: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.qtybtn
+{
+    padding: 1%;
+    width: 10%;
+    height: 20px;
+    color: #f85c12;
+    background-color: #b4ff0e;
+    border: 2px solid #5c8305;
+    float: left;
+    margin: 2%;
+    text-align: center;
+    border-radius: 20%;
+}
+.qtybtn:hover
+{
+    background-color: #95d40d;
+}
+.qty input[type=number]
+{
+    float: left;
+    margin: 2%;
+    padding:1%;
+    width: 40%;
+    border: 2px solid #5c8305;
+}
+.price
+{
+    width: 50%;
+    height: 90%;
+    margin:1%;
+    font-weight: 500;
+    font-size: large;
+    float: left;
+}
+.buybtn
+{
+    width: 50%;
+    height:auto;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    background-color: #EBE81B;
+}
+.buybtn:hover
+{
+    background-color: #ebc51b;
+}
+.totaldiv
+{
+    box-shadow: 0 4px 8px 0 rgba(7, 7, 7, 0.2);
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(255, 255, 255);
+    width: 30%;
+    height: 20vh;
+    margin-top: 2%;
+    margin-right:2%;
+    margin-bottom: 2%;
+    padding: 1%;
+    float: right;
+    position: sticky;
+    top:0;
+}
+.noitems
+{
+    font-weight: 700;
+    font-size: large;
+}
+.noitems label
+{
+    font-weight: 500;
+}
+.grandtotal
+{
+    font-weight: 700;
+    font-size: large;
+}
+.grandtotal label
+{
+    font-weight: 500;
+}

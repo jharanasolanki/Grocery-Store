@@ -9,17 +9,9 @@
 </head>
 
 <body class="hero-image">
-   </div> <!-- Nav bar --> 
-   <!-- Nav bar finishh -->
-   <!-- login section -->
-
-   </section>
-   <!-- login section finish -->
-   <!-- footer section -->
    <footer class="center">
       <p style="color:white">Some Text here<br> <a href="mailto:hege@example.com" style="color:white">EMAIL US</a>
-   </footer> <!-- footer section finish -->
-   </div>
+   </footer>
 </body>
 
 </html>

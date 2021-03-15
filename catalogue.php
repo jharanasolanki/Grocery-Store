@@ -56,7 +56,7 @@
                     $imgname="images/products/".$row['imagename'];
                     $name=$row['name'];
                     $price=$row['price'];
-                    $link="buyitem.php?id=".$row['id'];
+                    $link="productpage.php?id=".$row['id']."&qty=1";
                     $id=$row['id'];
                     print <<< END
                     <div class="productdivtop" onclick="productPage($id)">
@@ -87,7 +87,7 @@ END;
                     $imgname="images/products/".$row['imagename'];
                     $name=$row['name'];
                     $price=$row['price'];
-                    $link="buyitem.php?id=".$row['id'];
+                    $link="productpage.php?id=".$row['id']."&qty=1";
                     $id=$row['id'];
                     print <<< END
                     <div class="productdivtop">
@@ -117,7 +117,7 @@ END;
                     $imgname="images/products/".$row['imagename'];
                     $name=$row['name'];
                     $price=$row['price'];
-                    $link="buyitem.php?id=".$row['id'];
+                    $link="productpage.php?id=".$row['id']."&qty=1";
                     $id=$row['id'];
                     print <<< END
                     <div class="productdivtop">
@@ -179,7 +179,7 @@ END;
     }
     function productPage(pid)
     {
-        window.location.replace("productpage.php?id="+pid);
+        window.location.replace("productpage.php?id="+pid+"&qty=1");
     }
 </script>
 </html>

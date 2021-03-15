@@ -1,5 +1,5 @@
 <?php
-  session_start();
+    session_start();
    	include("config.php");
   	
    
@@ -24,7 +24,16 @@
         if($row) 
         {
           $_SESSION['username'] = $myusername;
-       	  header("location: index.php"); 
+          $_SESSION['accountid'] = $row['id'];
+          $_SESSION['custid'] = $row['custid'];
+          if(isset($_SESSION['back']))
+          {
+            header("location:".$_SESSION['back']); 
+          }
+          else
+          {
+            header("location: index.php"); 
+          }
     	 }
     	 else 
         {

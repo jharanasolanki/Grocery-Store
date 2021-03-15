@@ -1,6 +1,11 @@
 <?php require 'nav.php' ?>
 <?php require 'config.php' ?>
 <?php
+    if(empty($_GET['id']) || empty($_GET['qty']))
+    {
+        header('Location:'.'catalogue.php');
+    }
+    $qty=$_GET['qty'];
     $pid=$_GET['id'];
     $sql="SELECT * from grocerycatalog where id=$pid;";
     $result=$conn->query($sql);
@@ -40,15 +45,15 @@
                 <div id="price" hidden><?php echo $price; ?></div>
                 <div class="qty">
                     <div class="qtybtn" onclick="subQty()">-</div>
-                    <input type="number" name="qty" value="1" id="qty" readonly>
+                    <input type="number" name="qty" value="<?php echo $qty ?>" id="qty" readonly>
                     <div class="qtybtn" onclick="addQty()">+</div>
                 </div>
                 <div class="totaldiv">
                     <div class="total">Total: Rs.</div>
-                    <div id="dprice" class="totalprice"><?php echo $price; ?></div>
+                    <div id="dprice" class="totalprice"><?php echo $price*$qty; ?></div>
                 </div>
-                <div class="buybutton"><img src="images/icons/buy.png" height="24px" weight="24px">   Buy Now</div>
-                <div class="buybutton"><img src="images/icons/cart.png" height="25px" weight="25px">  Add to Cart</div>
+                <div class="buybutton" onclick="buy(<?php echo $pid; ?>)"><img src="images/icons/buy.png" height="24px" weight="24px">   Buy Now</div>
+                <div class="buybutton" onclick="addCart(<?php echo $pid; ?>)"><img src="images/icons/cart.png" height="25px" weight="25px">  Add to Cart</div>
                 <div class="buyfeatures">
                     <div class="feature">3 Days Delivery</div>
                     <div class="feature">Fresh Items</div>
@@ -79,6 +84,15 @@
             document.getElementById("qty").value=qty-1;
             var price=parseFloat(document.getElementById("price").innerHTML);
             document.getElementById("dprice").innerHTML=(qty-1)*price;
+        }
+        function buy(pid)
+        {
+            window.location.replace("buyitem.php?id="+pid);
+        }
+        function addCart(pid)
+        {
+            var qty=document.getElementById("qty").value;
+            window.location.replace("addcart.php?id="+pid+"&qty="+qty);
         }
     </script>
 </html>
