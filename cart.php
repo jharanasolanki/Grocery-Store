@@ -95,7 +95,7 @@ END;
         function subQty(id)
         {
             var qty=parseInt(document.getElementById(id+"qty").value);
-            if(qty==1)
+            if(qty<=1)
             {
                 return;
             }
@@ -104,7 +104,7 @@ END;
             document.getElementById(id+"dprice").innerHTML=(qty-1)*price;
             calcTotal();
             pid=document.getElementById(id+"prod").innerHTML;
-            window.location.replace("addcart.php?id="+pid+"&qty=1");
+            window.location.replace("removecart.php?pid="+pid+"&qty="+(qty-1));
         }
         function calcTotal()
         {
