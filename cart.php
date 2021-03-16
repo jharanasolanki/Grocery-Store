@@ -34,24 +34,30 @@
             $price=$row['price'];
             $qty=$row['qty'];
             $total=$row['total'];
+            $prodid=$row['prodid'];
+            $idq=$id."qty";
+            $idp=$id."price";
+            $idd=$id."dprice";
+            $idprod=$id."prod";
             print <<< END
             <div class="item">
             <div class="left">
                 <img src="images/products/$img">
             </div>
+            <div id="$idprod" hidden>$prodid</div>
             <div class="right">
                 <div class="row">
                     <div class="name">$name</div>
-                    <div class="delete"><img src="images/icons/delete.png"></div>
+                    <div class="delete" onclick="deleteCart($id)"><img src="images/icons/delete.png"></div>
                 </div>
-                <div id="price" hidden>$price</div>
+                <div id="$idp" hidden>$price</div>
                 <div class="row">
-                    <div class="price">Rs.<label id="dprice" class="dprice">$total</label></div>
+                    <div class="price">Rs.<label id="$idd" class="dprice">$total</label></div>
                     <div class="qtydiv">
                         <div class="qty">
-                            <div class="qtybtn" onclick="subQty()">-</div>
-                            <input type="number" name="qty" value="$qty" id="qty" readonly>
-                            <div class="qtybtn" onclick="addQty()">+</div>
+                            <div class="qtybtn" onclick="subQty($id)">-</div>
+                            <input type="number" name="qty" value="$qty" id="$idq" readonly>
+                            <div class="qtybtn" onclick="addQty($id)">+</div>
                         </div>
                     </div>
                 </div>
@@ -76,25 +82,29 @@ END;
         </div>  
     </body>
     <script type="text/javascript">
-        function addQty()
+        function addQty(id)
         {
-            var qty=parseInt(document.getElementById("qty").value);
-            document.getElementById("qty").value=qty+1;
-            var price=parseFloat(document.getElementById("price").innerHTML);
-            document.getElementById("dprice").innerHTML=(qty+1)*price;
+            var qty=parseInt(document.getElementById(id+"qty").value);
+            document.getElementById(id+"qty").value=qty+1;
+            var price=parseFloat(document.getElementById(id+"price").innerHTML);
+            document.getElementById(id+"dprice").innerHTML=(qty+1)*price;
             calcTotal();
+            pid=document.getElementById(id+"prod").innerHTML;
+            window.location.replace("addcart.php?id="+pid+"&qty=1");
         }
-        function subQty()
+        function subQty(id)
         {
-            var qty=parseInt(document.getElementById("qty").value);
+            var qty=parseInt(document.getElementById(id+"qty").value);
             if(qty==1)
             {
                 return;
             }
-            document.getElementById("qty").value=qty-1;
-            var price=parseFloat(document.getElementById("price").innerHTML);
-            document.getElementById("dprice").innerHTML=(qty-1)*price;
+            document.getElementById(id+"qty").value=qty-1;
+            var price=parseFloat(document.getElementById(id+"price").innerHTML);
+            document.getElementById(id+"dprice").innerHTML=(qty-1)*price;
             calcTotal();
+            pid=document.getElementById(id+"prod").innerHTML;
+            window.location.replace("addcart.php?id="+pid+"&qty=1");
         }
         function calcTotal()
         {
@@ -109,6 +119,10 @@ END;
         function buy(pid)
         {
             window.location.replace("buyitem.php?id="+pid);
+        }
+        function deleteCart(pid)
+        {
+            window.location.replace("deletecart.php?id="+pid);
         }
     </script>
 </html>
