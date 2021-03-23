@@ -52,7 +52,8 @@
                     <div class="total">Total: Rs.</div>
                     <div id="dprice" class="totalprice"><?php echo $price*$qty; ?></div>
                 </div>
-                <div class="buybutton" onclick="buy(<?php echo $pid; ?>)"><img src="images/icons/buy.png" height="24px" weight="24px">   Buy Now</div>
+                <?php $pname="'".$name."'";?>
+                <div class="buybutton" onclick="buy(<?php echo $pid.','.$pname.','.$price*$qty; ?>)""><img src="images/icons/buy.png" height="24px" weight="24px">   Buy Now</div>
                 <div class="buybutton" onclick="addCart(<?php echo $pid; ?>)"><img src="images/icons/cart.png" height="25px" weight="25px">  Add to Cart</div>
                 <div class="buyfeatures">
                     <div class="feature">3 Days Delivery</div>
@@ -85,9 +86,9 @@
             var price=parseFloat(document.getElementById("price").innerHTML);
             document.getElementById("dprice").innerHTML=(qty-1)*price;
         }
-        function buy(pid)
+        function buy(pid,name,price)
         {
-            window.location.replace("buyitem.php?id="+pid);
+            window.location.replace("trialpayments.php?pid="+pid+"&name="+name+"&price="+price);
         }
         function addCart(pid)
         {

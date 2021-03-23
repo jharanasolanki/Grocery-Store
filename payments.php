@@ -11,6 +11,10 @@ $dbConfig = [
 	'password' => 'WszXABOU7F',
 	'name' => 'HCT4UbGiki'
 ];
+$db = new mysqli($dbConfig['host'], $dbConfig['username'], $dbConfig['password'], $dbConfig['name']);
+    if ($db->connect_error) {
+        die("Connection failed: " . $db->connect_error);
+      }
 
 // PayPal settings. Change these to your account details and the relevant URLs
 // for your site.
@@ -24,8 +28,10 @@ $paypalConfig = [
 $paypalUrl = $enableSandbox ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr';
 
 // Product being purchased.
-$itemName = 'Test Item';
-$itemAmount = 5.00;
+
+$itemName = $_POST['name'];
+$itemAmount = $_POST['price'];
+$pid=$_POST['pid'];
 
 // Include Functions
 require 'functions.php';
@@ -90,7 +96,7 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])) {
 	// already processed the transaction before adding the payment to our
 	// database.
 	if (verifyTransaction($_POST) && checkTxnid($data['txn_id'])) {
-        $sql="insert into payments(txnid,payment_amount,payment_status,itemid,createdtime) values('".$data['txn_id']."',".$data['payment_amount'].",'".$data['payment_status']."','".$data['item_number']."',".date("Y-m-d H:i:s").");";
+        $sql="insert into payments(txnid,payment_amount,payment_status,itemid,createdtime,pid) values('".$data['txn_id']."',".$data['payment_amount'].",'".$data['payment_status']."','".$data['item_number']."',".date("Y-m-d H:i:s").",".$pid.");";
         $db->query($sql);
 		if (addPayment($data) !== false) {
 			// Payment successfully added.
