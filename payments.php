@@ -16,9 +16,9 @@ $dbConfig = [
 // for your site.
 $paypalConfig = [
 	'email' => 'sb-jjs645499947@business.example.com',
-	'return_url' => 'http://localhost:8081/Grocery/GroceryStore/payment-successful.html',
-	'cancel_url' => 'http://localhost:8081/Grocery/GroceryStore/payment-cancelled.html',
-	'notify_url' => 'http://localhost:8081/Grocery/GroceryStore/payments.php'
+	'return_url' => 'https://mygrocerystorephp.herokuapp.com/payment-successful.html',
+	'cancel_url' => 'https://mygrocerystorephp.herokuapp.com/payment-cancelled.html',
+	'notify_url' => 'https://mygrocerystorephp.herokuapp.com/payments.php'
 ];
 
 $paypalUrl = $enableSandbox ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr';
@@ -70,7 +70,9 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])) {
 
 	// Create a connection to the database.
 	$db = new mysqli($dbConfig['host'], $dbConfig['username'], $dbConfig['password'], $dbConfig['name']);
-
+    if ($db->connect_error) {
+        die("Connection failed: " . $db->connect_error);
+      }
 	// Assign posted variables to local data array.
 	$data = [
 		'item_name' => $_POST['item_name'],
