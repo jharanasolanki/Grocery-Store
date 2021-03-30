@@ -96,8 +96,8 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])) {
 	// already processed the transaction before adding the payment to our
 	// database.
 	if (verifyTransaction($_POST) && checkTxnid($data['txn_id'])) {
-        $sql="insert into payments(txnid,payment_amount,payment_status,itemid,createdtime,pid) values('".$data['txn_id']."',".$data['payment_amount'].",'".$data['payment_status']."','".$data['item_number']."',".date("Y-m-d H:i:s").",'grocery',".$_SESSION['id'].");";
-        $db->query($sql);
+        //$sql="insert into payments(txnid,payment_amount,payment_status,itemid,createdtime,pid) values('".$data['txn_id']."',".$data['payment_amount'].",'".$data['payment_status']."','".$data['item_number']."',".date("Y-m-d H:i:s").",'grocery',".$_SESSION['id'].");";
+        //$db->query($sql);
 		if (addPayment($data) !== false) {
 			// Payment successfully added.
            

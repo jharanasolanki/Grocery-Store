@@ -17,7 +17,7 @@
     <input type="hidden" name="first_name" value="Customer's First Name" />
     <input type="hidden" name="last_name" value="Customer's Last Name" />
     <input type="hidden" name="payer_email" value="customer@example.com" />
-    <input type="submit">
+    <input type="submit" hidden>
 </form>
 
 <script type="text/javascript" language="javascript">

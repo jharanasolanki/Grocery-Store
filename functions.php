@@ -75,7 +75,7 @@ function addPayment($data) {
 	global $db;
 
 	if (is_array($data)) {
-		$stmt = $db->prepare('INSERT INTO `payments` (txnid, payment_amount, payment_status, itemid, createdtime, page, custid) VALUES(?, ?, ?, ?, ?,?,?)');
+		$stmt = $db->prepare('INSERT INTO `payments` (txnid, payment_amount, payment_status, itemid, createdtime) VALUES(?, ?, ?, ?, ?)');
 		$stmt->bind_param(
 			'sdsss',
 			$data['txn_id'],
@@ -83,8 +83,6 @@ function addPayment($data) {
 			$data['payment_status'],
 			$data['item_number'],
 			date('Y-m-d H:i:s'),
-            'grocery',
-            $_SESSION['custid']
 		);
 		$stmt->execute();
 		$stmt->close();
