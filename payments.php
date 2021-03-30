@@ -12,9 +12,7 @@ $dbConfig = [
 	'name' => 'HCT4UbGiki'
 ];
 $db = new mysqli($dbConfig['host'], $dbConfig['username'], $dbConfig['password'], $dbConfig['name']);
-    if ($db->connect_error) {
-        die("Connection failed: " . $db->connect_error);
-      }
+   
 
 // PayPal settings. Change these to your account details and the relevant URLs
 // for your site.

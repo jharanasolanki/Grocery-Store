@@ -82,7 +82,7 @@ function addPayment($data) {
 			$data['payment_amount'],
 			$data['payment_status'],
 			$data['item_number'],
-			date('Y-m-d H:i:s'),
+			date('Y-m-d H:i:s')
 		);
 		$stmt->execute();
 		$stmt->close();
