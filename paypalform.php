@@ -15,8 +15,8 @@ $paypal_email = 'sb-jjs645499947@business.example.com';
         <input type="hidden" name="amount" value="<?php echo "20"; ?>">
             <input type="hidden" name="currency_code" value="USD">			
         <!-- URLs -->
-        <input type='hidden' name='cancel_return' value='http://localhost:8081/Grocery/GroceryStore/cancel.php'>
-        <input type='hidden' name='return' value='http://localhost:8081/Grocery/GroceryStore/success.php'>						
+        <input type='hidden' name='cancel_return' value='https://mygrocerystorephp.herokuapp.com/cancel.php'>
+        <input type='hidden' name='return' value='https://mygrocerystorephp.herokuapp.com/success.php'>						
         <!-- payment button. -->
         <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
         <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >    
