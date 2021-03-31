@@ -12,7 +12,10 @@ $dbConfig = [
 	'name' => 'HCT4UbGiki'
 ];
 $db = new mysqli($dbConfig['host'], $dbConfig['username'], $dbConfig['password'], $dbConfig['name']);
-   
+$itemName = $_POST['name'];
+$itemAmount = $_POST['price'];
+$pid=$_POST['pid'];
+
 
 // PayPal settings. Change these to your account details and the relevant URLs
 // for your site.
@@ -27,9 +30,6 @@ $paypalUrl = $enableSandbox ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 
 
 // Product being purchased.
 
-$itemName = $_POST['name'];
-$itemAmount = $_POST['price'];
-$pid=$_POST['pid'];
 
 // Include Functions
 require 'functions.php';
