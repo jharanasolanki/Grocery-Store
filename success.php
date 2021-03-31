@@ -3,11 +3,11 @@
 error_reporting(1);
 require 'config.php';
 //Store transaction information into database from PayPal
-$item_number = $_GET['item_number']; 
-$txn_id = $_GET['tx'];
-$payment_gross = $_GET['amt'];
-$currency_code = $_GET['cc'];
-$payment_status = $_GET['st'];
+$item_number =$_POST['item_number']; 
+$txn_id =$_POST['txn_id'];
+$payment_gross =$_POST['mc_gross'];
+$currency_code =$_POST['mc_currency'];
+$payment_status =$_POST['payment_status'];
 //Get product price to store into database
 echo $item_number;
 $sql = "SELECT * FROM products WHERE id = ".$item_number;
