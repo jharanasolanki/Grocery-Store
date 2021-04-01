@@ -9,7 +9,7 @@ $payment_gross =$_POST['mc_gross'];
 $currency_code =$_POST['mc_currency'];
 $payment_status =$_POST['payment_status'];
 //Get product price to store into database
-echo $item_number;
+echo isset($_POST["txn_id"]);
 $sql = "SELECT * FROM products WHERE id = ".$item_number;
 $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
 $row = mysqli_fetch_assoc($resultset);
