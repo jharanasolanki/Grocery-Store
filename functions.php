@@ -1,3 +1,4 @@
+
 <?php
 
 /**
@@ -71,17 +72,20 @@ function checkTxnid($txnid) {
  * @param array $data Payment data
  * @return int|bool ID of new payment or false if failed
  */
-function addPayment($data) {
+function addPayment($data,$qty,$custid) {
 	global $db;
 
 	if (is_array($data)) {
-		$stmt = $db->prepare('INSERT INTO `payments` (txnid, payment_amount, payment_status, itemid, createdtime) VALUES(?, ?, ?, ?, ?)');
+		$stmt = $db->prepare('INSERT INTO `payments` (txnid, payment_amount, qty, payment_status, itemid, page, custid, createdtime) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
 		$stmt->bind_param(
-			'sdsss',
+			'sdssssss',
 			$data['txn_id'],
 			$data['payment_amount'],
+			$data['qty'],
 			$data['payment_status'],
 			$data['item_number'],
+			$data['page'],
+			$data['custid'],
 			date('Y-m-d H:i:s')
 		);
 		$stmt->execute();

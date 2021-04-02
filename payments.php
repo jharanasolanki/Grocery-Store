@@ -12,10 +12,11 @@ $dbConfig = [
 	'name' => 'HCT4UbGiki'
 ];
 $db = new mysqli($dbConfig['host'], $dbConfig['username'], $dbConfig['password'], $dbConfig['name']);
-$itemName = $_POST['name'];
-$itemAmount = $_POST['price'];
-$pid=$_POST['pid'];
-
+$itemName = $_POST['item_name'];
+$itemAmount = $_POST['item_amount'];
+$pid=$_POST['item_number'];
+$qty=$_POST['item_qty'];
+$custid=$_POST['custid'];
 
 // PayPal settings. Change these to your account details and the relevant URLs
 // for your site.
@@ -88,6 +89,9 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])) {
 		'receiver_email' => $_POST['receiver_email'],
 		'payer_email' => $_POST['payer_email'],
 		'custom' => $_POST['custom'],
+		'qty'=> $qty,
+		'custid'=>$accountid,
+		'page'=>'grocery',
 	];
 
 	// We need to verify the transaction comes from PayPal and check we've not
@@ -96,7 +100,7 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])) {
 	if (verifyTransaction($_POST) && checkTxnid($data['txn_id'])) {
         //$sql="insert into payments(txnid,payment_amount,payment_status,itemid,createdtime,pid) values('".$data['txn_id']."',".$data['payment_amount'].",'".$data['payment_status']."','".$data['item_number']."',".date("Y-m-d H:i:s").",'grocery',".$_SESSION['id'].");";
         //$db->query($sql);
-		if (addPayment($data) !== false) {
+		if (addPayment($data,$qty,$custid) !== false) {
 			// Payment successfully added.
            
 		}

@@ -88,7 +88,8 @@
         }
         function buy(pid,name,price)
         {
-            window.location.replace("trialpayments.php?pid="+pid+"&name="+name+"&price="+price);
+            var qty=parseInt(document.getElementById("qty").value);
+            window.location.replace("buyitem.php?pid="+pid+"&qty="+qty);
         }
         function addCart(pid)
         {
