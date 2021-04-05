@@ -17,22 +17,22 @@
 
 <div class="topnav" id="myTopnav">
   <a href="index.php" class="active">Home</a>
-  <a href="#news">News</a>
   <a href="catalogue.php">Catalog</a>
-  <div class="dropdown">
-    <button class="dropbtn">Dropdown
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
-  </div>
-  <div class="topnav-right">
+  <?php
+      if(isset($_SESSION['username']))
+      {
+        if($_SESSION['accountid']==40)
+        {
+          echo "<a href='additem.php'>Add Inventory</a>";
+          echo "<a href='sendmailfrontend.php'>Send Emails</a>";
+        }
+      }
+  ?>
 
+  <div class="topnav-right">
+  <a href="orders.php">Orders</a>
     <a href="cart.php">Cart</a>
-    <a href="#contact">Active jobs</a>
+
 
     <?php
       if(isset($_SESSION['username']))

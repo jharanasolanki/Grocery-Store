@@ -1,3 +1,5 @@
+<?php require 'config.php'; ?>
+<?php require 'nav.php'; ?>
 <?php
 
 // For test payments we want to enable the sandbox mode. If you want to put live
@@ -22,9 +24,9 @@ $custid=$_POST['custid'];
 // for your site.
 $paypalConfig = [
 	'email' => 'sb-jjs645499947@business.example.com',
-	'return_url' => 'https://mygrocerystorephp.herokuapp.com/payment-successful.html',
-	'cancel_url' => 'https://mygrocerystorephp.herokuapp.com/payment-cancelled.html',
-	'notify_url' => 'https://mygrocerystorephp.herokuapp.com/payments.php'
+	'return_url' => 'http://localhost:8081/Grocery/GroceryStore/payment-successful.php',
+	'cancel_url' => 'http://localhost:8081/Grocery/GroceryStore/payment-cancelled.php',
+	'notify_url' => 'http://localhost:8081/Grocery/GroceryStore/payments.php'
 ];
 
 $paypalUrl = $enableSandbox ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr';

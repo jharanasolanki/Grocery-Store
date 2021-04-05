@@ -1,4 +1,23 @@
 <?php require 'nav.php' ?>
+<?php
+    if(!isset($_SESSION['username']))
+    {
+        if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+            $url = "https://";   
+        else     
+            $url = "http://";   
+        $url.= $_SERVER['HTTP_HOST'];   
+        $url.= $_SERVER['REQUEST_URI'];    
+        $_SESSION['back']=$url;
+        header('Location:'.'signin.php');
+    }
+    $accountid=$_SESSION['accountid'];
+    if($accountid!=40)
+    {
+        header('Location:'.'index.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +37,18 @@
                 </div>
                 <div lass="element-name">
                     <label class="title">Subject</label> <input type="text" name="subject" required="required" style="width:50%;" /><br>
-                    <label class="title">Discount</label> <input type="text" name="discount" required="required" style="width:50%;" /><br>
+                    <label class="title">Customer Priority</label>
+                    <span class="mid1">
+                    <select name="priority" style="width:50%;">
+                        <option value="1" selected>High Priority</option>
+                        <option value="2">Medium Priority</option>
+                        <option value="3">Low Priority</option>
+                    </select>
+                    </span><br>
+                    <label class="title">Discount</label> <input type="text" name="discount" required="required" style="width:50%;" /><br><br>
+                    <label class="title">Select Image</label>
+                    <input type="file" name="fileToUpload" id="fileToUpload" style="width:50%;">
+                    <br><br>
                     <label class="title">Description</label> <textarea name="description" required="required"></textarea><br>
                 </div>
                 <div class="submit"><input type="submit" value="Submit" /></div>

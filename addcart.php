@@ -26,24 +26,31 @@
     $total=$row["price"]*$qty;
     echo $total;
     $status="Added to Cart";
-    $sql="SELECT * from grocerycart where accountid=$accountid and productid=$pid;";
+    $sql="SELECT * from grocerycart where accountid=$accountid and productid=$pid and status='Added to Cart';";
     $result=$conn->query($sql);
     if($result->num_rows>0)
     {
-        while($row = $result->fetch_assoc())
-        {
-            $qty+=$row['qty'];
-            $sql="delete from grocerycart where accountid=$accountid and productid=$pid;";
-            $conn->query($sql);
-        }
+        $row = $result->fetch_assoc();
+        $qty+=$row['qty'];
         $total=$price*$qty;
+        $sql="update grocerycart set qty=$qty,total=$total where accountid=$accountid and productid=$pid;";
+        $conn->query($sql);
+        if($conn->query($sql)===TRUE)
+        {
+            header('Location:'.'cart.php');
+        }
+        else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
     }
-    $sql="insert into grocerycart(accountid,productid,qty,price,total,status) values($accountid,$pid,$qty,$price,$total,'$status')";
+   else
+   { $sql="insert into grocerycart(accountid,productid,qty,price,total,status) values($accountid,$pid,$qty,$price,$total,'$status')";
     if($conn->query($sql)===TRUE)
     {
         header('Location:'.'cart.php');
     }
     else {
         echo "Error: " . $sql . "<br>" . $conn->error;
+    }
     }
 ?>

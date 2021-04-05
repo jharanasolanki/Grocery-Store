@@ -1,3 +1,4 @@
+<?php require 'nav.php' ?>
 <!DOCTYPE html>
 <html>
 <head>

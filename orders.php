@@ -13,9 +13,13 @@
         header('Location:'.'signin.php');
     }
     $accountid=$_SESSION['accountid'];
-    $sql="select cat.id as prodid,cat.name as name,cat.price as price,cat.imagename as img,car.id as id,car.qty as qty,car.total as total from grocerycart as car left join grocerycatalog as cat on car.productid=cat.id and car.accountid=$accountid where car.status='Added to Cart';";
+    $sql="select car.id as prodid,car.date as date,cat.name as name,cat.price as price,cat.imagename as img,car.id as id,car.qty as qty,car.total as total from orders as car left join grocerycatalog as cat on car.productid=cat.id and car.custid=$accountid where car.orderfrom='direct' and page='grocery';";
     $result=$conn->query($sql);
-    $noitems=$result->num_rows;
+
+    $sql="select car.id as prodid,car.date as date,cat.name as name,cat.price as price,cat.imagename as img,car.id as id,car.qty as qty,car.total as total from orders as car left join grocerycart as cart on car.productid=cart.id left join grocerycatalog as cat on cart.productid=cat.id and car.custid=$accountid where car.orderfrom='cart' and page='grocery';";
+    $result2=$conn->query($sql);
+
+    $noitems=$result->num_rows+$result2->num_rows;
 ?>
 
 <html>
@@ -28,6 +32,46 @@
         while($row = $result->fetch_assoc()) 
         {
             $name=$row['name'];
+            $img=$row['img'];
+            $date=$row['date'];
+            $id=$row['id'];
+            $prodid=$row['id'];
+            $price=$row['price'];
+            $qty=$row['qty'];
+            $total=$row['total'];
+            $prodid=$row['prodid'];
+            $idq=$id."qty";
+            $idp=$id."price";
+            $idd=$id."dprice";
+            $idprod=$id."prod";
+            print <<< END
+            <div class="item">
+            <div class="left">
+                <img src="images/products/$img">
+            </div>
+            <div id="$idprod" hidden>$prodid</div>
+            <div class="right">
+                <div class="row">
+                    <div class="name">$name</div>
+                    <label class="name">$date</label>
+                </div>
+                <div id="$idp" hidden>$price</div>
+                <div class="row">
+                    <div class="price">Rs.<label id="$idd" class="dprice">$total</label></div>
+                    <div class="qtydiv">
+                        <div class="qty">
+                            <input type="number" name="qty" value="$qty" id="$idq" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+END;
+        } 
+        while($row = $result2->fetch_assoc()) 
+        {
+            $name=$row['name'];
+            $date=$row['date'];
             $img=$row['img'];
             $id=$row['id'];
             $prodid=$row['id'];
@@ -48,26 +92,22 @@
             <div class="right">
                 <div class="row">
                     <div class="name">$name</div>
-                    <div class="delete" onclick="deleteCart($id)"><img src="images/icons/delete.png"></div>
+                    <label class="name">$date</label>
                 </div>
                 <div id="$idp" hidden>$price</div>
                 <div class="row">
                     <div class="price">Rs.<label id="$idd" class="dprice">$total</label></div>
                     <div class="qtydiv">
                         <div class="qty">
-                            <div class="qtybtn" onclick="subQty($id)">-</div>
                             <input type="number" name="qty" value="$qty" id="$idq" readonly>
-                            <div class="qtybtn" onclick="addQty($id)">+</div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="buybtn" onclick="buy($id)">BUY</div>
                 </div>
             </div>
         </div>
 END;
-        } ?>
+        }
+?>
         </div>
         <div class="totaldiv">
             <div class="row">
@@ -75,9 +115,6 @@ END;
             </div>
             <div class="row">
                 <div class="grandtotal">Grand Total: <label>Rs.</label><label id="gtotal"></label></div>
-            </div>
-            <div class="row">
-                <div class="buybtn" onclick="buyall()">BUY ALL</div>
             </div>
         </div>  
     </body>

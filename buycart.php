@@ -14,21 +14,33 @@ if(!isset($_SESSION['username']))
 }
 $uname=$_SESSION['username'];
 $accountid=$_SESSION['accountid'];
-$pid=$_GET['pid'];
-$qty=$_GET["qty"];
 
-$sql="SELECT * from grocerycatalog where id=$pid;";
+$amount=0;
+$sql="SELECT * from grocerycart where accountid=$accountid and status='Added to Cart';";
 $result=$conn->query($sql);
-$row = $result->fetch_assoc();
-$name=$row["name"];
-$price=$row["price"];
-$amount=$qty*$price;
+while($row = $result->fetch_assoc())
+{
+    $qty=$row['qty'];
+    $total=$row['total'];
+    $price=$row['price'];
+    $cart_id=$row['id'];
+    $pid=$row['productid'];
+    $sql="SELECT * from grocerycatalog where id=$pid;";
+    $res=$conn->query($sql);
+    $ro = $res->fetch_assoc();
 
-$sql="insert into payments(payment_amount,qty,payment_status,itemid,page,custid,createdtime) values($amount,$qty,'Completed',$pid,'grocery',$accountid,'".date('Y-m-d H:i:s')."');";
-$conn->query($sql);
+    $name=$ro["name"];
+    $amount+=$total;
 
-$sql="insert into orders(custid,productid,qty,price,total,page,orderfrom,date) values($accountid,$pid,$qty,$price,$amount,'grocery','direct','".date('Y-m-d H:i:s')."');";
-$conn->query($sql);
+    $sql="update grocerycart set status='ordered' where id=$cart_id;";
+    $conn->query($sql);
+
+    $sql="insert into payments(payment_amount,qty,payment_status,itemid,page,orderfrom,custid,createdtime) values($total,$qty,'Completed',$cart_id,'grocery','cart',$accountid,'".date('Y-m-d H:i:s')."');";
+    $conn->query($sql);
+
+    $sql="insert into orders(custid,productid,qty,price,total,page,orderfrom,date) values($accountid,$cart_id,$qty,$price,$total,'grocery','cart','".date('Y-m-d H:i:s')."');";
+    $conn->query($sql);
+}
 
 $sql="SELECT * from customer where id=$accountid;";
 $result=$conn->query($sql);
