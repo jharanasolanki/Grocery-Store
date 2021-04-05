@@ -52,7 +52,7 @@
                 </div>
                 <div id="$idp" hidden>$price</div>
                 <div class="row">
-                    <div class="price">Rs.<label id="$idd" class="dprice">$total</label></div>
+                    <div class="price">$<label id="$idd" class="dprice">$total</label></div>
                     <div class="qtydiv">
                         <div class="qty">
                             <div class="qtybtn" onclick="subQty($id)">-</div>
@@ -74,7 +74,7 @@ END;
                 <div class="noitems">Number of Items: <label><?php echo $noitems; ?></label></div>
             </div>
             <div class="row">
-                <div class="grandtotal">Grand Total: <label>Rs.</label><label id="gtotal"></label></div>
+                <div class="grandtotal">Grand Total: <label>$</label><label id="gtotal"></label></div>
             </div>
             <div class="row">
                 <div class="buybtn" onclick="buyall()">BUY ALL</div>

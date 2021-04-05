@@ -41,7 +41,7 @@
             <div class="prodinfo">
                 <div class="prodcategory">/<?php echo $category; ?></div>
                 <div class="prodtitle"><?php echo $name; ?></div>
-                <div class="prodprice">Rs.<?php echo $price; ?></div>
+                <div class="prodprice">$ <?php echo $price; ?></div>
                 <div id="price" hidden><?php echo $price; ?></div>
                 <div class="qty">
                     <div class="qtybtn" onclick="subQty()">-</div>
@@ -49,7 +49,7 @@
                     <div class="qtybtn" onclick="addQty()">+</div>
                 </div>
                 <div class="totaldiv">
-                    <div class="total">Total: Rs.</div>
+                    <div class="total">Total: $ </div>
                     <div id="dprice" class="totalprice"><?php echo $price*$qty; ?></div>
                 </div>
                 <?php $pname="'".$name."'";?>
