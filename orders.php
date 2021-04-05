@@ -13,10 +13,10 @@
         header('Location:'.'signin.php');
     }
     $accountid=$_SESSION['accountid'];
-    $sql="select car.id as prodid,car.date as date,cat.name as name,cat.price as price,cat.imagename as img,car.id as id,car.qty as qty,car.total as total from orders as car left join grocerycatalog as cat on car.productid=cat.id and car.custid=$accountid where car.orderfrom='direct' and page='grocery';";
+    $sql="select car.id as prodid,car.date as date,cat.name as name,cat.price as price,cat.imagename as img,car.id as id,car.qty as qty,car.total as total from orders as car left join grocerycatalog as cat on car.productid=cat.id and car.custid=$accountid where car.orderfrom='direct' and page='grocery' and car.custid=$accountid;";
     $result=$conn->query($sql);
 
-    $sql="select car.id as prodid,car.date as date,cat.name as name,cat.price as price,cat.imagename as img,car.id as id,car.qty as qty,car.total as total from orders as car left join grocerycart as cart on car.productid=cart.id left join grocerycatalog as cat on cart.productid=cat.id and car.custid=$accountid where car.orderfrom='cart' and page='grocery';";
+    $sql="select car.id as prodid,car.date as date,cat.name as name,cat.price as price,cat.imagename as img,car.id as id,car.qty as qty,car.total as total from orders as car left join grocerycart as cart on car.productid=cart.id left join grocerycatalog as cat on cart.productid=cat.id and car.custid=$accountid where car.orderfrom='cart' and page='grocery' and car.custid=$accountid;";
     $result2=$conn->query($sql);
 
     $noitems=$result->num_rows+$result2->num_rows;

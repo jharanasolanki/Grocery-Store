@@ -13,7 +13,7 @@
         header('Location:'.'signin.php');
     }
     $accountid=$_SESSION['accountid'];
-    $sql="select cat.id as prodid,cat.name as name,cat.price as price,cat.imagename as img,car.id as id,car.qty as qty,car.total as total from grocerycart as car left join grocerycatalog as cat on car.productid=cat.id and car.accountid=$accountid where car.status='Added to Cart';";
+    $sql="select cat.id as prodid,cat.name as name,cat.price as price,cat.imagename as img,car.id as id,car.qty as qty,car.total as total from grocerycart as car left join grocerycatalog as cat on car.productid=cat.id and car.accountid=$accountid where car.status='Added to Cart' and car.accountid=$accountid;";
     $result=$conn->query($sql);
     $noitems=$result->num_rows;
 ?>
