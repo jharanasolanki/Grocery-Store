@@ -37,7 +37,7 @@
         $conn->query($sql);
         if($conn->query($sql)===TRUE)
         {
-            //header('Location:'.'cart.php');
+            header('Location:'.'cart.php');
         }
         else {
             echo "Error: " . $sql . "<br>" . $conn->error;
@@ -47,7 +47,7 @@
    { $sql="insert into grocerycart(accountid,productid,qty,price,total,status) values($accountid,$pid,$qty,$price,$total,'$status')";
     if($conn->query($sql)===TRUE)
     {
-        //header('Location:'.'cart.php');
+        header('Location:'.'cart.php');
     }
     else {
         echo "Error: " . $sql . "<br>" . $conn->error;

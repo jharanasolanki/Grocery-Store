@@ -40,7 +40,7 @@
             $idd=$id."dprice";
             $idprod=$id."prod";
             print <<< END
-            <div class="item">
+            <div class="item" id="$id">
             <div class="left">
                 <img src="images/products/$img">
             </div>
@@ -71,7 +71,7 @@ END;
         </div>
         <div class="totaldiv">
             <div class="row">
-                <div class="noitems">Number of Items: <label><?php echo $noitems; ?></label></div>
+                <div class="noitems">Number of Items: <label id="itemcount"><?php echo $noitems; ?></label></div>
             </div>
             <div class="row">
                 <div class="grandtotal">Grand Total: <label>$</label><label id="gtotal"></label></div>
@@ -90,7 +90,10 @@ END;
             document.getElementById(id+"dprice").innerHTML=(qty+1)*price;
             calcTotal();
             pid=document.getElementById(id+"prod").innerHTML;
-            window.location.replace("addcart.php?id="+pid+"&qty=1");
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET","addcart.php?id="+pid+"&qty=1", true);
+            xmlhttp.send();
+            //window.location.replace("addcart.php?id="+pid+"&qty=1");
         }
         function subQty(id)
         {
@@ -104,7 +107,10 @@ END;
             document.getElementById(id+"dprice").innerHTML=(qty-1)*price;
             calcTotal();
             pid=document.getElementById(id+"prod").innerHTML;
-            window.location.replace("removecart.php?pid="+pid+"&qty="+(qty-1));
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET","removecart.php?pid="+pid+"&qty="+(qty-1), true);
+            xmlhttp.send();
+            //window.location.replace("removecart.php?pid="+pid+"&qty="+(qty-1));
         }
         function calcTotal()
         {
@@ -126,7 +132,15 @@ END;
         }
         function deleteCart(pid)
         {
-            window.location.replace("deletecart.php?id="+pid);
+            var obj=document.getElementById(pid);
+            obj.remove();
+            var count=parseFloat(document.getElementById("itemcount").innerHTML);
+            document.getElementById("itemcount").innerHTML=count-1;
+            calcTotal();
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET","deletecart.php?id="+pid, true);
+            xmlhttp.send();
+            //window.location.replace("deletecart.php?id="+pid);
         }
     </script>
 </html>

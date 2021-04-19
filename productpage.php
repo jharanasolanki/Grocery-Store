@@ -1,6 +1,17 @@
 <?php require 'nav.php' ?>
 <?php require 'config.php' ?>
 <?php
+    if(!isset($_SESSION['username']))
+    {
+        if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+            $url = "https://";   
+        else     
+            $url = "http://";   
+        $url.= $_SERVER['HTTP_HOST'];   
+        $url.= $_SERVER['REQUEST_URI'];    
+        $_SESSION['back']=$url;
+        header('Location:'.'signin.php');
+    }
     if(empty($_GET['id']) || empty($_GET['qty']))
     {
         header('Location:'.'catalogue.php');
@@ -12,6 +23,7 @@
     $row = $result->fetch_assoc();
     $name=$row["name"];
     $price=$row["price"];
+    $accountid=$_SESSION['accountid'];
     if($row["category"]==0)
     {
         $category="Essential Items";
@@ -26,6 +38,12 @@
     }
     $description=$row["description"];
     $imgname="images/products/".$row['imagename'];
+    $sql = "select pid from grocerywishlist where custid=$accountid";
+    $result = $conn->query($sql);
+    $wishes=array();
+    while( $row = mysqli_fetch_assoc( $result)){
+        array_push($wishes,$row['pid']);
+    }
 ?>
 <html>
     <head>
@@ -34,12 +52,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     </head>
     <body>
+    <div hidden><img src="images/icons/wish.png" id="wishtemp"></div>
+    <div hidden><img src="images/icons/wishempty.png" id="unwishtemp"></div>
         <div class="prodbody">
             <div class="prodimage">
                 <img src="<?php echo $imgname; ?>">
             </div>
             <div class="prodinfo">
-                <div class="prodcategory">/<?php echo $category; ?></div>
+                <div class="prodcategory">/<?php echo $category; ?>
+                <?php
+                if(in_array($pid,$wishes))
+                    {
+                        print <<< END
+                        <div class="productwish" onclick="removeWish(this,$pid)"><img src="images/icons/wish.png"></div>
+END; 
+                    }
+                    else
+                    {
+                        print <<< END
+                        <div class="productwish" onclick="addWish(this,$pid)"><img src="images/icons/wishempty.png"></div>
+END; 
+                    }
+                    ?>
+                </div>
                 <div class="prodtitle"><?php echo $name; ?></div>
                 <div class="prodprice">$ <?php echo $price; ?></div>
                 <div id="price" hidden><?php echo $price; ?></div>
@@ -94,7 +129,23 @@
         function addCart(pid)
         {
             var qty=document.getElementById("qty").value;
-            window.location.replace("addcart.php?id="+pid+"&qty="+qty);
+            window.location.replace("addtocart.php?id="+pid+"&qty="+qty);
+        }
+        function addWish(current,pid)
+        {
+            var newEl=document.getElementById("wishtemp").cloneNode(true);
+            current.children[0].replaceWith(newEl);
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "addwishlist.php?pid=" + pid, true);
+            xmlhttp.send();
+        }
+        function removeWish(current,pid)
+        {
+            var newEl=document.getElementById("unwishtemp").cloneNode(true);
+            current.children[0].replaceWith(newEl);
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "deletewish.php?id=" + pid, true);
+            xmlhttp.send();
         }
     </script>
 </html>

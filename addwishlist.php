@@ -1,6 +1,6 @@
 <?php require 'config.php' ?>
 <?php
-    session_start();
+session_start();
     if(!isset($_SESSION['username']))
     {
         if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
@@ -18,15 +18,6 @@
     }
     $accountid=$_SESSION['accountid'];
     $pid=$_GET['pid'];
-    $qty=$_GET['qty'];
-    $sql="update grocerycart set qty=$qty,total=price*$qty where productid=$pid and accountid=$accountid";
-    $conn->query($sql);;
-    if($conn->query($sql)===TRUE)
-    {
-        //header('Location:'.'cart.php');
-    }
-    else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-    ?>
-    
+    $sql="insert into grocerywishlist(custid,pid) values($accountid,$pid)";
+    $conn->query($sql)
+?>

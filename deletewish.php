@@ -2,7 +2,7 @@
 <?php
     session_start();
     $id=$_GET['id'];
-    $sql="delete from grocerycart where id=$id and accountid=".$_SESSION['accountid'];
+    $sql="delete from grocerywishlist where pid=$id and custid=".$_SESSION['accountid'];
     $conn->query($sql);
     //header('Location:'.'cart.php');
 ?>

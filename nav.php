@@ -30,8 +30,7 @@
   ?>
 
   <div class="topnav-right">
-  <a href="orders.php">Orders</a>
-    <a href="cart.php">Cart</a>
+ 
 
 
     <?php
@@ -39,6 +38,9 @@
       {
         $uname=$_SESSION['username'];
         print <<< END
+        <a href="wishlist.php">Wishlist</a>
+        <a href="orders.php">Orders</a>
+          <a href="cart.php">Cart</a>
         <div class="dropdown">
     <button class="dropbtn">Hey $uname!
       <i class="fa fa-caret-down"></i>
