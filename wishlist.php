@@ -13,7 +13,7 @@
         header('Location:'.'signin.php');
     }
     $accountid=$_SESSION['accountid'];
-    $sql="select cat.id as prodid,cat.name as name,cat.price as price,cat.imagename as img,car.id as id from grocerywishlist as car left join grocerycatalog as cat on car.pid=cat.id and car.custid=$accountid;";
+    $sql="select cat.id as prodid,cat.name as name,cat.price as price,cat.imagename as img,car.id as id from grocerywishlist as car left join grocerycatalog as cat on car.pid=cat.id where car.custid=$accountid;";
     $result=$conn->query($sql);
     $noitems=$result->num_rows;
 ?>
@@ -52,7 +52,7 @@
                     <div class="price">$<label id="$idd" class="dprice">$price</label></div>
                 </div>
                 <div class="row">
-                    <div class="buybtn" onclick="view($id)">View</div>
+                    <div class="buybtn" onclick="view($prodid)">View</div>
                 </div>
             </div>
         </div>

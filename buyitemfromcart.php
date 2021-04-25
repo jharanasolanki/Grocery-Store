@@ -41,7 +41,7 @@ $conn->query($sql);
 $sql="SELECT * from customer where id=$accountid;";
 $result=$conn->query($sql);
 $row = $result->fetch_assoc();
-$email=$row["emailid"];
+//$email=$row["emailid"];
 ?>
 <!DOCTYPE html>
 <html>
