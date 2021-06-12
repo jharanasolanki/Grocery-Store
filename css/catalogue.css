@@ -1,0 +1,198 @@
+
+.search-container {
+    float: right;
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+  
+  
+  .searchbox{
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+  }
+  
+  .search-container .srcbutton {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    width: 50px;
+    margin-right: 16px;
+    background:#EBE81B;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+  .search-container .srcbutton:hover {
+    background: #cac718;
+  }
+  
+  
+  
+  @media screen and (max-width: 600px) {
+      .search-container {
+          float: none;
+        }
+      .search-container .srcbutton {
+          float: none;
+          display: block;
+          text-align: left;
+          width: 100%;
+          margin: 0;
+          padding: 14px;
+        }
+        .searchbox {
+          border: 1px solid #ccc;  
+        }
+      }
+  .maindiv
+  {
+      width:90%;
+      height:100%;
+      padding-left: 5%;
+      padding-right: 5%;
+      padding-top:5%;
+  }
+  .sectionchoosediv
+  {
+      width: 100%;
+      height:10%;
+      padding-top:2%;
+      padding-left: 9%;
+      padding-right: 9%;
+      padding-bottom:2%;
+  }
+  .sectiondiv
+  {
+      width:25%;
+      height:90%;
+      float:left;
+      border-radius: 20px;
+      background-color: white;
+      margin-top:1%;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom:1%;
+  }
+  .sectiondiv:hover
+  {
+      transform: scale(1.1);
+  }
+  .sectionname
+  {
+      float:left;
+      margin-left:1%;
+      margin-right:1%;
+      margin-top:7%;
+      text-align: center;
+      color:black;
+      font-family: 'Montserrat', sans-serif;
+  }
+  .sectionicon
+  {
+      float:left;
+      height:50px;
+      width:50px;
+      margin-top:3%;
+      margin-left:10%;
+      margin-right:2%;
+      border-radius: 20px;
+  }
+  .allproductdiv
+  {
+      width:100%;
+      height:90%;
+      align-self: center;
+      padding-left: 10%;
+      padding-right: 10%;
+  }
+  .productrowdiv
+  {
+      width:100%;
+      height:65%;
+      margin-top:1%;
+      margin-left: 3%;
+      margin-right: 3%;
+  }
+  .productdiv
+  {
+      float:left;
+      border-radius: 20px;
+      background-color: white;
+      width:21%;
+      height: 90%;
+      margin-top:1%;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom:1%;
+      padding-bottom: 1%;
+      padding-left: 2%;
+  }
+  .productimage
+  {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 20px;
+      margin-top: 20px;
+      height: 250px;
+      width:250px;
+  }
+  .productname
+  {
+      margin-left:1%;
+      margin-right:1%;
+      margin-top:1%;
+      text-align: center;
+      color:black;
+      font-family: 'Montserrat', sans-serif;
+  }
+  .productwish
+  {
+      margin-left:1%;
+      margin-right:5%;
+      margin-top:3%;
+      margin-bottom: 3%;
+      text-align: center;
+      color:black;
+      float: right;
+      font-family: 'Montserrat', sans-serif;
+  }
+  .productprice
+  {
+      margin-left:1%;
+      margin-right:1%;
+      margin-top:1%;
+      text-align: center;
+      color:#259c25;
+      font-family: 'Poppins', sans-serif;
+  }
+  .productbutton
+  {
+      border-radius: 20px;
+      margin-left:100px;
+      margin-right:100px;
+      text-align: center;
+      margin-top:1%;
+      padding-left:5%;
+      padding-right:5%;
+      padding-top: 2%;
+      padding-bottom: 2%;
+      background-color:#EBE81B;
+      color:black;
+      font-family: 'Montserrat', sans-serif;
+      text-decoration: none;
+  }
+  .productbutton:hover >.productimage
+  {
+      opacity: 0.2;
+  }
+  .productbutton:hover
+  {
+      transform: scale(1.2);
+      background-color:#c7c419;
+  }
+  
+  
+  
